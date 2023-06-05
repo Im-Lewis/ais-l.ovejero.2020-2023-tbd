@@ -25,12 +25,14 @@ public class SeleniumTest {
 
 	@BeforeAll
 	public static void setupClass() {
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.firefoxdriver().setup();
 	}
 
 	@BeforeEach
 	public void setupTest() {
-        this.driver = new ChromeDriver();
+		FirefoxOptions options = new FirefoxOptions();
+		options.setHeadless(true);
+        	this.driver = new FirefoxDriver(options);
 	}
 
 	@AfterEach
