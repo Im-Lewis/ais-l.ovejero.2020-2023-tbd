@@ -8,7 +8,6 @@ on:
 jobs: 
   test: 
     runs-on: ubuntu-latest
-    
     steps: 
       - name: Comprobar repositorio
         uses: actions/checkout@v3
@@ -21,6 +20,3 @@ jobs:
             
       - name: Ejecucion de los test 
       - run: mvn test
-            
-          
-          
