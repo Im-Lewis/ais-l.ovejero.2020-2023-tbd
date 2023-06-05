@@ -1,8 +1,8 @@
 # AIS-Practica-3-2023
 
-Autor(es): Michel Maes Bermejo y Francisco Gortázar Bellas
+Autor(es): Luis Ovejero Martín 
 
-[Repositorio (CAMBIAR ENLACE)](https://github.com/URJC-AIS/AIS-Practica-3-2023-template)
+[Repositorio](https://github.com/Im-Lewis/ais-l.ovejero.2020-2023-tbd)
 
 [Aplicación Okteto (CAMBIAR ENLACE)](https://books-maes95.cloud.okteto.net/)
 
