@@ -29,7 +29,7 @@ jobs:
       - name: Subir imagen a DockerHub
         run:
           VERSION=${{ github.sha }} 
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:$VERSION
+          docker push imlewiis/books-reviewer:$VERSION
           
       - name: Instalar el cliente de Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
