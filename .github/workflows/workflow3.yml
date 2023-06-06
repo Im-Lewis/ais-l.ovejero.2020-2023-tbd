@@ -20,7 +20,7 @@ jobs:
         
       - name: Crear imagen Docker 
         run: 
-          COMMIT_HASH=git log -n 1 --pretty=format:"%H"
+          COMMIT_HASH=git rev-parse HEAD
           mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/practica_3_testing:$COMMIT_HASH
           
       - name: Iniciar sesion en DockerHub
@@ -28,7 +28,7 @@ jobs:
         
       - name: Subir imagen a DockerHub
         run:
-          COMMIT_HASH=git log -n 1 --pretty=format:"%H"
+          COMMIT_HASH=git rev-parse HEAD
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/practica_3_testing:$COMMIT_HASH
           
       - name: Instalar el cliente de Okteto CLI
