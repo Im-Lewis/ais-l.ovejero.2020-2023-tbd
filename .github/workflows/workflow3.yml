@@ -26,6 +26,7 @@ jobs:
           COMMIT_HASH=$(echo "${{ github.ref }}" | cut -d'/' -f3)
           IMAGE_TAG="release-${COMMIT_HASH}"
           mvn spring-boot:build-image -Dspring-boot.build-imageName=$DOCKER_USERNAME/practica_3_testing:$IMAGE_TAG
-          docker push $DOCKER_USERNAME/practica_3_testing:$IMAGE_TAG
+          docker login
+          docker push $DOCKER_USERNAME/practica_3_testing:$IMAGE_TAG .
         
       
