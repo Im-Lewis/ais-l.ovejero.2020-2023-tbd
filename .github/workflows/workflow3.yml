@@ -20,16 +20,16 @@ jobs:
         
       - name: Crear imagen Docker 
         run: 
-          COMMIT_HASH=git rev-parse HEAD
-          mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/practica_3_testing:$COMMIT_HASH
+          VERSION=${{ github.sha }} 
+          mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:$VERSION
           
       - name: Iniciar sesion en DockerHub
         run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}" 
         
       - name: Subir imagen a DockerHub
         run:
-          COMMIT_HASH=git rev-parse HEAD
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/practica_3_testing:$COMMIT_HASH
+          VERSION=${{ github.sha }} 
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:$VERSION
           
       - name: Instalar el cliente de Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
@@ -38,4 +38,6 @@ jobs:
         run: okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
         
       - name: Desplegar en Okteto
-        run: okteto deploy --wait
+        run: | 
+          export VERSION=${{ github.sha }} 
+          okteto deploy --wait
