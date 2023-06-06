@@ -39,11 +39,11 @@
             </div>
         </div>
         <div class="ui divider"></div>
-        {{/reviews}} 
-        
+        {{/reviews}}
+
         <!-- MENSAJE DE ERROR -->
         {{#error}}
-        <div class="ui negative message" id="error-message">
+        <div id="error_message" class="ui negative message" id="error-message">
             <div class="header">
                 {{ message }}
             </div>
@@ -57,11 +57,11 @@
             <form class="ui reply form" action="/review" method="post">
                 <div class="field">
                     <label>Nickname</label>
-                    <input type="text" name="nickname" placeholder="nickname">
+                    <input id="Nombre_Review" type="text" name="nickname" placeholder="nickname">
                 </div>
                 <div class="field">
                     <label>Review</label>
-                    <textarea name="content"></textarea>
+                    <textarea id="Contenido_Review" name="content"></textarea>
                 </div>
                 <input type="hidden" name="bookId" value="{{book.id}}">
                 <button class="ui blue labeled submit icon button right floated" type="submit" id="add-review">
