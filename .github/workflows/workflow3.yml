@@ -40,7 +40,7 @@ jobs:
           IMAGE_TAG="release-${COMMIT_HASH}"
           okteto login --token $OKTETO_TOKEN
           okteto namespace
-          okteto pipeline deploy books-reviewer --image=$DOCKER_USERNAME/my-app:$IMAGE_TAG
+          okteto pipeline deploy books-reviewer --image=$DOCKER_USERNAME/practica_3_testing:$IMAGE_TAG
           
           
           
