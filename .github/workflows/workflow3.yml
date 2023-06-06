@@ -19,15 +19,13 @@ jobs:
         run: mvn test
         
       - name: Crear imagen Docker 
-        run: 
-          VERSION=${{ github.sha }} 
-          mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:$VERSION
+        run: mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }} 
           
       - name: Iniciar sesion en DockerHub
         run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}" 
         
       - name: Subir imagen a DockerHub
-        run: docker push imlewiis/books-reviewer:${{ github.sha }} 
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }} .
           
       - name: Instalar el cliente de Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
