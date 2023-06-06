@@ -19,7 +19,8 @@ jobs:
         run: mvn test
         
       - name: Crear imagen Docker 
-        run: mvn spring-boot:build-image -Dspring-boot.build-imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }} 
+        run: mvn spring-boot:build-image -DskipTests
+          -Dspring-boot.build-image.imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }} 
           
       - name: Iniciar sesion en DockerHub
         run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}" 
