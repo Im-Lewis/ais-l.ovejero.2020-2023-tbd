@@ -1,9 +1,7 @@
 name: Workflow3
 
 on:
-  push: 
-    branches: 
-      - 'release-*'
+  workflow_dispatch:
       
 jobs:
   tests: 
@@ -19,3 +17,32 @@ jobs:
           
       - name: Ejecutar tests
         run: mvn test
+        
+      - name: Set up Docker Buildx
+        uses:  docker/setup-buildx-action@v1
+        
+      - name: Build and push docker image 
+        env: 
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          
+        run: |
+          COMMIT_HASH=$(echo "${{ github.ref }}" | cut -d'/' -f3)
+          IMAGE_TAG="release-${COMMIT_HASH}"
+          docker buildx create --use
+          docker buildx build --push --tag $DOCKER_USERNAME/practica_3_testing:$IMAGE_TAG .
+          
+      - name: Despliegue en okteto 
+        env: 
+          OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
+        run: |
+          COMMIT_HASH=$(echo "${{ github.ref }}" | cut -d'/' -f3)
+          IMAGE_TAG="release-${COMMIT_HASH}"
+          okteto login --token $OKTETO_TOKEN
+          okteto namespace
+          okteto pipeline deploy books-reviewer --image=$DOCKER_USERNAME/my-app:$IMAGE_TAG
+          
+          
+          
+          
+          
