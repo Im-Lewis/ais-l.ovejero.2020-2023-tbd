@@ -18,10 +18,10 @@ jobs:
           java-version: '17'
           
       - name: Ejecucion de test de integracion 
-        run: mvn test -Dtest=integration
+        run: mvn test -Dtest=OpenLibraryServiceIntegrationTest
         
       - name: Ejecucion de test unitarios 
-        run: mvn test -Dtest=unitary
+        run: mvn test -Dtest=ReviewServiceUnitaryTest
           
       
       
