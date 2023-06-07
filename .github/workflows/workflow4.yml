@@ -1,7 +1,8 @@
 name: Workflow4
 
 on:
-  workflow_dispatch: 
+  schedule: 
+    - cron: '0 14 * * *' #prueba de que se ejecuta a las 16h hora española (14h UTC)
   
 jobs: 
   test: 
