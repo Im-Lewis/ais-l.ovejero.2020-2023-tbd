@@ -20,7 +20,7 @@ jobs:
         
       - name: Crear imagen Docker 
         run: mvn spring-boot:build-image -DskipTests
-          -Dspring-boot.build-image.imageName=${{ secrets.DOCKER_USERNAME }}/books-reviewer:${{ github.sha }} 
+          -Dspring-boot.build-image.imageName=${{ secrets.DOCKER_USERNAME }}/books-reviewer:${{ github.sha }}. 
           
       - name: Iniciar sesion en DockerHub
         run: docker login 
