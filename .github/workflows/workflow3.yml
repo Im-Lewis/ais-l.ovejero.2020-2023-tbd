@@ -32,10 +32,8 @@ jobs:
       - name: Instalar el cliente de Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
         
-      - name: iniciar sesion en Okteto
+      - name: Iniciar sesion en Okteto
         run: okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
         
       - name: Desplegar en Okteto
-        run: | 
-          export VERSION=${{ github.sha }} 
-          okteto deploy --wait
+        run: okteto deploy --wait
