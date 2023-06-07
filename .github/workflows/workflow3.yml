@@ -36,4 +36,6 @@ jobs:
         run: okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
         
       - name: Desplegar en Okteto
-        run: okteto deploy --wait
+        run: |
+          export VERSION=${{ github.sha }}
+          okteto deploy --wait
