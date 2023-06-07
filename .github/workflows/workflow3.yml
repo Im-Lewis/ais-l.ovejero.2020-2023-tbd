@@ -20,14 +20,14 @@ jobs:
         
       - name: Crear imagen Docker 
         run: mvn spring-boot:build-image -DskipTests
-          -Dspring-boot.build-image.imageName=${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }} 
+          -Dspring-boot.build-image.imageName=${{ secrets.DOCKER_USERNAME }}/books-reviewer:${{ github.sha }} 
           
       - name: Iniciar sesion en DockerHub
         run: docker login 
-          -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}" 
+          -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}" 
         
       - name: Subir imagen a DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/books-reviewer:${{ github.sha }}.
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/books-reviewer:${{ github.sha }}.
           
       - name: Instalar el cliente de Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
