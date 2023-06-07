@@ -1,6 +1,6 @@
 # AIS-Practica-3-2023
 
-Autor(es): Luis Ovejero Martín 
+Autor: Luis Ovejero Martín 
 
 [Repositorio](https://github.com/Im-Lewis/ais-l.ovejero.2020-2023-tbd)
 
