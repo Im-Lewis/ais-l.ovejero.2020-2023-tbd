@@ -1,5 +1,3 @@
-name: DockerCompose
-
 services: 
   books-reviewer-tbd: 
     image: imlewiis/books-reviewer:${VERSION}
