@@ -2,6 +2,6 @@ name: DockerCompose
 
 services: 
   books-reviewer-tbd: 
-    image: imlewiis/books-reviewer:${VERSION}
+    image: ${{ secrets.DOCKER_USERNAME }}/books-reviewer:${VERSION}
     ports: 
       - 8080:8080
