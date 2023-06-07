@@ -4,7 +4,7 @@ Autor(es): Luis Ovejero Martín
 
 [Repositorio](https://github.com/Im-Lewis/ais-l.ovejero.2020-2023-tbd)
 
-[Aplicación Okteto (CAMBIAR ENLACE)](https://books-maes95.cloud.okteto.net/)
+[Aplicación Okteto]([https://books-maes95.cloud.okteto.net/](https://cloud.okteto.com/spaces/im-lewis?resourceId=85c859c2-eb26-45f8-9bae-8c627b925864))
 
 ## Desarrollo con (GitFlow/TBD)
 
