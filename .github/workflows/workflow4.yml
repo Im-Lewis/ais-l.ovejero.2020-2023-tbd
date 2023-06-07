@@ -2,7 +2,7 @@ name: Workflow4
 
 on:
   schedule: 
-    - cron: '0 14 * * *' #prueba de que se ejecuta a las 16h hora española (14h UTC)
+    - cron: '0 2 * * *' #Ejecucion a las 04:00h hora española aproximadamente (02:00h UTC)
   
 jobs: 
   test: 
