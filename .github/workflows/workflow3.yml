@@ -1,7 +1,9 @@
 name: Workflow3
 
 on:
-  workflow_dispatch:
+  push: 
+    branches: 
+      - 'release-*'
       
 jobs:
   publish: 
