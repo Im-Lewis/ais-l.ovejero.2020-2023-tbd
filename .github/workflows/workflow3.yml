@@ -42,18 +42,9 @@ jobs:
           export VERSION=${{ github.sha }}
           okteto deploy --wait
           
-      - name: Obtener dirección del host de Okteto
-        id: get_host
-        env:
-          OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
-        run: |
-          export OKTETO_NAMESPACE=$(okteto namespace)
-          export HOST=$(okteto stack output books-reviewer -n $OKTETO_NAMESPACE --json | jq -r '.[0].addresses[0]')
-          echo "::set-output name=host::$HOST"
-          
       - name: Ejecutar Sanity Test
         env:
-          HOST: ${{ steps.get_host.outputs.host }}
+          HOST: https://books-reviewer-tbd-im-lewis.cloud.okteto.net/
         run: mvn -Dhost=$HOST test -Dtest=SanityTest
 
 
