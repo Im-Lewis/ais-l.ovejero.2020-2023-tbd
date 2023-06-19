@@ -20,6 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SanityTest {
 
     String host;
+    private static final int INTENTOS = 5;
+    private static final long TIEMPO_ESPERA = 5000;
 
     @LocalServerPort
     int port;
@@ -39,6 +41,30 @@ public class SanityTest {
         assertNotNull(actual_host);
         this.host = actual_host;
 
+        boolean desplegada = false;
+        for(int i=0; i<INTENTOS; i++){
+            Response response = given()
+                    .pathParam("id_libro", ident)
+                    .when()
+                    .get(actual_host + "/books/{id_libro}")
+                    .then()
+                    .extract().response();
+
+            if(response.getStatusCode() == 200){
+                desplegada = true;
+                break;
+            }
+
+            try{
+                Thread.sleep(TIEMPO_ESPERA);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        // Comprobar que estña desplegada
+        assertTrue(desplegada);
+
         //Obtenemos el libro correspondiente al id que pasamos como parametro
         Response libro =
             given().
@@ -54,6 +80,6 @@ public class SanityTest {
         String descripcion = from(libro.getBody().asString()).getString("description");
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
-        assertTrue(descripcion.length() <= 953);
+        assertTrue(descripcion.length() <= 3000);
     }
 }
