@@ -42,19 +42,6 @@ jobs:
           export VERSION=${{ github.sha }}
           okteto deploy --wait
           
-      - name: Esperar el despliegue de la aplicación
-        env: 
-          OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
-        run: |
-          sleep 30
-          while true; do
-          deployment_status=$(okteto stack ls --token $OKTETO_TOKEN | grep "books-reviewer" | awk '{print $2}')
-            if [ "$deployment_status" == "READY" ]; then
-              break
-            fi
-            sleep 10
-          done
-          
       - name: Obtener dirección del host de Okteto
         id: get_host
         env:
