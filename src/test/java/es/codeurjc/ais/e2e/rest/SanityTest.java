@@ -48,7 +48,7 @@ public class SanityTest {
             Response response = given()
                     .pathParam("id_libro", ident)
                     .when()
-                    .get(actual_host + "/books/{id_libro}")
+                    .get("/books/{id_libro}")
                     .then()
                     .extract().response();
 
