@@ -44,7 +44,7 @@ jobs:
           
       - name: Ejecutar Sanity Test
         env:
-          HOST: https://books-reviewer-tbd-im-lewis.cloud.okteto.net/
+          HOST: https://books-reviewer-tbd-im-lewis.cloud.okteto.net
         run: mvn -Dhost=$HOST test -Dtest=SanityTest
 
 
