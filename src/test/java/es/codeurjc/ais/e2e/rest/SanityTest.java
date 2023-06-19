@@ -41,6 +41,8 @@ public class SanityTest {
         assertNotNull(actual_host);
         this.host = actual_host;
 
+        System.out.println("Actual Host: " + actual_host);
+
         boolean desplegada = false;
         for(int i=0; i<INTENTOS; i++){
             Response response = given()
