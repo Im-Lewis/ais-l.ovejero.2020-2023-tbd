@@ -41,8 +41,6 @@ public class SanityTest {
         assertNotNull(actual_host);
         this.host = actual_host;
 
-        System.out.println("Actual Host: " + actual_host);
-
         boolean desplegada = false;
         for(int i=0; i<INTENTOS; i++){
             Response response = given()
@@ -64,7 +62,7 @@ public class SanityTest {
             }
         }
 
-        // Comprobar que estña desplegada
+        // Comprobar que esta desplegada
         assertTrue(desplegada);
 
         //Obtenemos el libro correspondiente al id que pasamos como parametro
@@ -80,6 +78,8 @@ public class SanityTest {
 
         //Obtenemos la descripcion del libro con el id correspondiente
         String descripcion = from(libro.getBody().asString()).getString("description");
+
+        System.out.println("Descripcion del libro: " + descripcion);
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
         assertTrue(descripcion.length() <= 3000);
