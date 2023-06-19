@@ -31,7 +31,7 @@ public class SanityTest {
 
 //----------------------------------------------------------------------------------------------------------------------
     @ParameterizedTest
-    @ValueSource(strings = {"OL15358691W"})
+    @ValueSource(strings = {"OL27479W"})
     @DisplayName("Test que busca un libro por id")
     public void sanity_test(String ident) throws JSONException{
         //Recibimos el parametro del host donde esta lanzada la aplicacion
@@ -44,7 +44,7 @@ public class SanityTest {
             given().
                 pathParam("id_libro", ident).
             when()
-                .get("/api/books/{id_libro}").
+                .get(actual_host + "/books/{id_libro}").
             then()
                 .assertThat()
                     .statusCode(200).
