@@ -80,8 +80,8 @@ public class SanityTest {
         String respuesta = libro.getBody().asString();
         System.out.println("Cuerpo de respuesta: " + respuesta);
 
-        JsonPath jsonpath = new JsonPath(respuesta); 
-        String descripcion = jsonpath.getString("description");
+        JsonPath jsonpath = new JsonPath(respuesta);
+        String descripcion = jsonpath.getString("bookDescription");
 
         //Obtenemos la descripcion del libro con el id correspondiente
         //String descripcion = from(libro.getBody().asString()).getString("description");
