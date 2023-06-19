@@ -1,6 +1,7 @@
 package es.codeurjc.ais.e2e.rest;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.jupiter.api.BeforeEach;
@@ -76,10 +77,14 @@ public class SanityTest {
                     .statusCode(200).
                     extract().response();
 
-        System.out.println(libro);
+        String respuesta = libro.getBody().asString();
+        System.out.println("Cuerpo de respuesta: " + respuesta);
+
+        JsonPath jsonpath = new JsonPath(respuesta); 
+        String descripcion = jsonpath.getString("description");
 
         //Obtenemos la descripcion del libro con el id correspondiente
-        String descripcion = from(libro.getBody().asString()).getString("description");
+        //String descripcion = from(libro.getBody().asString()).getString("description");
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
         assertTrue(descripcion.length() <= 3000);
