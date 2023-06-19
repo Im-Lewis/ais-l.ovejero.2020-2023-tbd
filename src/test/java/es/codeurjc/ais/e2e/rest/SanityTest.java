@@ -20,8 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SanityTest {
 
     String host;
-    private static final int INTENTOS = 5;
-    private static final long TIEMPO_ESPERA = 5000;
+    private static final int INTENTOS = 8;
+    private static final long TIEMPO_ESPERA = 10000;
 
     @LocalServerPort
     int port;
