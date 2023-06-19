@@ -47,7 +47,7 @@ public class SanityTest {
             Response response = given()
                     .pathParam("id_libro", ident)
                     .when()
-                    .get("/books/{id_libro}")
+                    .get("api/books/{id_libro}")
                     .then()
                     .extract().response();
 
@@ -71,20 +71,14 @@ public class SanityTest {
             given().
                 pathParam("id_libro", ident).
             when()
-                .get("/books/{id_libro}").
+                .get("api/books/{id_libro}").
             then()
                 .assertThat()
                     .statusCode(200).
                     extract().response();
 
-        String respuesta = libro.getBody().asString();
-        System.out.println("Cuerpo de respuesta: " + respuesta);
-
-        JsonPath jsonpath = new JsonPath(respuesta);
-        String descripcion = jsonpath.getString("bookDescription");
-
         //Obtenemos la descripcion del libro con el id correspondiente
-        //String descripcion = from(libro.getBody().asString()).getString("description");
+        String descripcion = from(libro.getBody().asString()).getString("description");
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
         assertTrue(descripcion.length() <= 3000);
