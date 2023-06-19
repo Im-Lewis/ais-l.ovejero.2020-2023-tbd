@@ -81,6 +81,6 @@ public class SanityTest {
         String descripcion = from(libro.getBody().asString()).getString("description");
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
-        assertTrue(descripcion.length() <= 3000);
+        assertTrue(descripcion.length() <= 953);
     }
 }
