@@ -74,12 +74,12 @@ public class SanityTest {
             then()
                 .assertThat()
                     .statusCode(200).
-                    extract().response().andReturn();
+                    extract().response();
 
         System.out.println(libro);
 
         //Obtenemos la descripcion del libro con el id correspondiente
-        String descripcion = from(libro.getBody().asString()).getString("bookDescription");
+        String descripcion = from(libro.getBody().asString()).getString("description");
 
         //Comprueba que la longitud de la descripcion del libro es menor o igual que 953
         assertTrue(descripcion.length() <= 3000);
