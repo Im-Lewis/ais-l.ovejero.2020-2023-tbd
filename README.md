@@ -25,4 +25,10 @@ Ahora para poder empezar a añadir la nueva funcionalidad necesitamos crear una 
 ```
 $ git checkout -b feature-short-descriptions
 ```
-Con este último comando podremos crear una rama y trabajar en ella.
+Con este último comando podremos crear una rama y trabajar en ella, en esta rama es donde crearemos la nueva funcionalidad, haremos los commits correspondientes para añadir esta funcionalidad con los comandos: 
+```
+$ git add .
+$ git commit -m "Update: Short Descriptions"
+$ git push origin feature-short-descriptions
+```
+Con estos comandos añadimos las nuevas modificaciones que hayamos hecho a los ficheros del código, creamos la mini versión y la subimos a nuestra rama "feature-short-descriptions".
