@@ -8,7 +8,10 @@ Autor: Luis Ovejero Martín
 
 ## Desarrollo con (GitFlow/TBD)
 
-Una vez creados los workflows y funcionando estos, pasamos a crear la nueva funcionalidad utilizando (Gitflow o TBD):
+### Paso 1: Definicion de workflows
+Antes de empezar con el desarrollo de la nueva funcionalidad preparamos los workflows y comprobamos que funcionen. Además añadimos el "sanity test" para comprobar que la aplicación está correctamente desplegada.
+
+Una vez que hemos comprobado que todos los workflows y el test funcionan podemos pasar a crear la nueva funcionalidad para hacer las descripciones de 950 caracteres, utilizando (Gitflow o TBD):
 
 ```
 $ git clone ...
