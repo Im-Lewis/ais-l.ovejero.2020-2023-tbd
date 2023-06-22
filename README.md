@@ -11,11 +11,18 @@ Autor: Luis Ovejero Martín
 ### Paso 1: Definicion de workflows
 Antes de empezar con el desarrollo de la nueva funcionalidad preparamos los workflows y comprobamos que funcionen. Además añadimos el "sanity test" para comprobar que la aplicación está correctamente desplegada.
 
-Una vez que hemos comprobado que todos los workflows y el test funcionan podemos pasar a crear la nueva funcionalidad para hacer las descripciones de 950 caracteres, utilizando (Gitflow o TBD):
 
+### Paso 2: Desarrollo de una funcionalidad nueva 
+
+Una vez que hemos comprobado que todos los workflows y el test funcionan, borramos las ejecuciones de los worflows que hasn sido de prueba para dejar solo las que se ejecuten durante el desarrollo de la nueva funcionalidad. Después de esto ya podemos pasar a crear la nueva funcionalidad para hacer las descripciones de 950 caracteres, utilizando (Gitflow o TBD):
+
+Previamente hemos clonado el repositorio para poder añadir el "sanity test" con el comando: 
 ```
-$ git clone ...
+$ git clone https://github.com/Im-Lewis/ais-l.ovejero.2020-2023-tbd
 ```
 
-....
-
+Ahora para poder empezar a añadir la nueva funcionalidad necesitamos crear una rama nueva para trabajar en ella: 
+```
+$ git checkout -b feature-short-descriptions
+```
+Con este último comando podremos crear una rama y trabajar en ella.
